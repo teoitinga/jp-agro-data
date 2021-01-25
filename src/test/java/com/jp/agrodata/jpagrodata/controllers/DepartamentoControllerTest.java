@@ -36,26 +36,5 @@ class DepartamentoControllerTest {
     @MockBean
     DepartamentoService departamentoService;
 
-    @Test
-    @DisplayName("Deve inserir registro de novo departamento")
-    void criaDepartamento() throws Exception {
 
-        DepartamentoDTO dto = DepartamentoDTOFactory.criaDTOValido();
-        DepartamentoDTO saved = DepartamentoDTOFactory.criaDTOValidoComID();
-
-        String json = new ObjectMapper().writeValueAsString(dto);
-        BDDMockito.given(departamentoService.save(Mockito.any(DepartamentoDTO.class))).willReturn(saved);
-
-        MockHttpServletRequestBuilder request = MockMvcRequestBuilders.post(ROOT_APP)
-                .contentType(MediaType.APPLICATION_JSON)
-                .accept(MediaType.APPLICATION_JSON)
-                .content(json);
-
-        mvc.perform(request)
-                .andExpect(MockMvcResultMatchers.status().isCreated())
-                .andExpect(MockMvcResultMatchers.jsonPath("id").isNotEmpty())
-                .andExpect(MockMvcResultMatchers.jsonPath("nome").value("Secretaria de Agricultura"))
-                .andExpect(MockMvcResultMatchers.jsonPath("nomeRepresentante").value("Marculino"))
-        ;
-    }
 }

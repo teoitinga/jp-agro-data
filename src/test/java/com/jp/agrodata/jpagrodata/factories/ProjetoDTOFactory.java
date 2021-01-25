@@ -13,7 +13,7 @@ public class ProjetoDTOFactory {
     public static ProjetoDTO criaDTOValido() {
         return ProjetoDTO.builder()
                 .codIBGEMunicipio("H0684")
-                .codDepartamento("0012")
+                .codDepartamento(0012)
                 .cpfResponsavel("04459471604")
                 .descricao("Program de distribuição de sementes de hortaliçcas")
                 .inicio("01/01/2021")

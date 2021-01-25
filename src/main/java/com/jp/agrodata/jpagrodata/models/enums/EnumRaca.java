@@ -5,5 +5,6 @@ public enum EnumRaca {
     PARDA,
     BRANCA,
     AMARELA,
-    INDIGENA
+    INDIGENA,
+    NAO_INFORMADO
 }

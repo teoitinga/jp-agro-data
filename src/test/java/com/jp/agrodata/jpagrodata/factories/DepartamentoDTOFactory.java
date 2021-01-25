@@ -5,7 +5,7 @@ import com.jp.agrodata.jpagrodata.dtos.DepartamentoDTO;
 public class DepartamentoDTOFactory {
     public static DepartamentoDTO criaDTOValido() {
         return DepartamentoDTO.builder()
-                .codEmpresaVinculada("123")
+                .CodEmpresaVinculada(123)
                 .codIBGEMunicipio("H0684")
                 .contato("32331530")
                 .contatoRepresentante("99906-5029")

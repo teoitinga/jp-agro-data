@@ -1,0 +1,447 @@
+{
+	"info": {
+		"_postman_id": "df648045-21f1-4874-b33d-0507f4c6b988",
+		"name": "Pangeia",
+		"description": "Sistema de acompanhamento e gestão de projetos",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Root",
+			"item": [
+				{
+					"name": "Registra Empresa",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"cnpj\": \"46831668000181\",\r\n  \"codIBGEMunicipio\": \"H0684\",\r\n  \"contatoEmpresa\": \"3332331530\",\r\n  \"contatoRepresentante\": \"33999065029\",\r\n  \"cpfRepresentante\": \"04459471604\",\r\n  \"dataAtivacao\": \"21/01/2021\",\r\n  \"dataDesativacao\": \"21/05/2021\",\r\n  \"emailEmpresa\": \"tarumirim@emater.mg.gov.br\",\r\n  \"emailRepresentante\": \"teo.itinga@gmail.com\",\r\n  \"endereco\": \"Rua José Tonel, 56\",\r\n  \"nomeFantasia\": \"Escritorio local de Tarumirim\",\r\n  \"nomeRepresentante\": \"João Paulo Santana Gusmão\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/root/gerenciar-empresa",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"root",
+								"gerenciar-empresa"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Registra Banco",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"codigoDoBanco\": \"001\",\r\n  \"nome\": \"Banco do Brasil\",\r\n  \"sigla\": \"BB\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/root/banco",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"root",
+								"banco"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Registra Situacao",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"codServicos\": [\r\n    3, 4\r\n  ],\r\n  \"descricao\": \"O produtor solicitou aopi pois necessita da emissão deste documento para acessar o creditorural\"\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/root/situacao",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"root",
+								"situacao"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Registra Situacao Copy",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/root/situacao",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"root",
+								"situacao"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Registra Orientacao",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"codServicos\": [\r\n    3, 4\r\n  ],\r\n  \"descricao\": \"Fazer adubação com NPK 04-14-08\"\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/root/orientacao",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"root",
+								"orientacao"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Registra Recomendacao",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"codServicos\": [\r\n    1, 2, 4\r\n  ],\r\n  \"descricao\": \"Obter o licenciamento antes da implantação do projeto.\"\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/root/orientacao",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"root",
+								"orientacao"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Registra APP",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"appDescription\": \"Sistema para gestão de escritorioas\",\r\n  \"appKey\": \"jpagro2021\",\r\n  \"appName\": \"JP-Agro\",\r\n  \"appVersion\": \"1.0\",\r\n  \"devFone\": \"33999065029\",\r\n  \"devMail\": \"teo.itinga@gmail.com\",\r\n  \"devName\": \"João Paulo santana Gusmão\"\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/root/system",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"root",
+								"system"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Registra Agencia Bancaria",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"codAgencia\": \"1154-1\",\r\n  \"codBanco\": \"001\",\r\n  \"codIBGEMunicipio\": \"h0684\",\r\n  \"emailAgencia\": \"1154@bb.com.br\",\r\n  \"enderecoAgencia\": \"Prç Sâo Vicente, 56\",\r\n  \"foneAgencia\": \"3332331388\",\r\n  \"foneGerente\": \"3332331388\",\r\n  \"nomeAgencia\": \"Tarumirim\",\r\n  \"nomeGerente\": \"Vinicius\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/root/agencia-bancaria",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"root",
+								"agencia-bancaria"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Registra Contrato",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"clausulas\": \"tem que pagar, senão não pode usar. E o preço é este mesmo.\",\r\n  \"objeto\": \"licenca mensal para aplicação de gestão e controle de projetos.\",\r\n  \"servicos\": \"servicos de fornecimento a sisteama de gerenciamento de banco de dados.\",\r\n  \"remuneracao\": \"o valor fica fixado em R$600,00 mensais.\",\r\n  \"cnpjContratante\": \"46831668000181\",\r\n  \"dataContrato\": \"21/01/2021\",\r\n  \"fimVigencia\": \"25/06/2021\",\r\n  \"idApp\": \"jpagro2021\",\r\n  \"valor\": 600.00\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/root/contrato",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"root",
+								"contrato"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Registra Unidade de Medida",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"conv_si\": 1,\r\n  \"descricao\": \"Unidade\",\r\n  \"equiv_si\": \"Unidade\",\r\n  \"referencia\": \"Unidade\",\r\n  \"sigla\": \"UN\",\r\n  \"tipo\": \"LINEAR\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/root/unidades",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"root",
+								"unidades"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Registra conta bancaria",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"codAgencia\": \"1154-1\",\r\n  \"numConta\": \"20960-0\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/root/conta-bancaria",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"root",
+								"conta-bancaria"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Empresa",
+			"item": [
+				{
+					"name": "Registra Departamento",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"codEmpresaVinculada\": 1,\r\n  \"codIBGEMunicipio\": \"H0684\",\r\n  \"contato\": \"3332331530\",\r\n  \"contatoRepresentante\": \"3332331530\",\r\n  \"cpfRepresentante\": \"04459471604\",\r\n  \"dataAtivacao\": \"14/01/2021\",\r\n  \"email\": \"tarumirim@emater.mg.gov.br\",\r\n  \"emailRepresentante\": \"joao.gusmao@emater.mg.gov.br\",\r\n  \"endereco\": \"Av. Cunha, 80\",\r\n  \"nome\": \"Escritorio Local de Tarumirim\",\r\n  \"nomeRepresentante\": \"João Paulo Santana Gusmão\",\r\n  \"setor\": \"AGRICULTURA\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/empresa/gerenciar-departamento",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"empresa",
+								"gerenciar-departamento"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Departamento",
+			"item": [
+				{
+					"name": "Cria Projeto",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"codDepartamento\": 1,\r\n  \"codIBGEMunicipio\": \"H0684\",\r\n  \"cpfResponsavel\": \"04459471604\",\r\n  \"descricao\": \"Programa de assistencia técnica em bovinocultura\",\r\n  \"fim\": \"31/12/2021\",\r\n  \"inicio\": \"01/01/2021\",\r\n  \"justificativa\": \"O povo faz muita coisa errada\",\r\n  \"nomeDoProjeto\": \"Minas Leite\",\r\n  \"numDeBeneficiarios\": 50,\r\n  \"objetivoEspecifico\": \"Desenvolver e aplicar tecnicas de gestão na propriedade rural\",\r\n  \"objetivoGeral\": \"Melhorar a qualidade de vida do produtor rural\",\r\n  \"parceiros\": \"Sindocato, Senar, Banco do Brasil, Sicoob\",\r\n  \"publicoAlvo\": \"Agricultores familiares em situação de vulnerabilidade social\",\r\n  \"resultadosEsperados\": \"Melhorar a produção de leite\",\r\n  \"valorOrcado\": 12000\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/departamento/gerenciar-projeto",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"departamento",
+								"gerenciar-projeto"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cria Meta",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"codProjeto\": 1,\r\n  \"codUnidade\": 1,\r\n  \"descricao\": \"Regularizar propriedades rurais com o órgão ambiental\",\r\n  \"fim\": \"31/12/2021\",\r\n  \"inicio\": \"01/01/2021\",\r\n  \"quantidade\": 100,\r\n  \"resultado\": \"Propriedades regulaRIZadas\",\r\n  \"servicos\": [\r\n      1,2,4\r\n  ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/departamento/gerenciar-meta",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"departamento",
+								"gerenciar-meta"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cria Meta Copy",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"descricao\": \"Elaboração de CAR mais de 04 modulos fiscais\",\r\n  \"referencia\": \"Elaboração de CAR mais de 04 modulos fiscais\",\r\n  \"tempoNecessario\": 5,\r\n  \"valor\": 500\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/departamento/gerenciar-servico",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"departamento",
+								"gerenciar-servico"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "LOCAL_TEST",
+			"value": "localhost:8080/api/v1"
+		},
+		{
+			"key": "LOCAL_PROD",
+			"value": "localhost:8080/api/v1"
+		},
+		{
+			"key": "HEROKU",
+			"value": ""
+		}
+	]
+}
