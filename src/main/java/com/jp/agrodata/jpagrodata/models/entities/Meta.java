@@ -45,7 +45,7 @@ public class Meta implements Serializable {
     @JoinColumn(name = "COD_UNIDADE")
     private Unidade unidade;
 
-    @ManyToMany(fetch = FetchType.LAZY)
+    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "META_ID")
     List<Servico> servicos;
 }

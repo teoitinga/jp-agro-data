@@ -24,6 +24,6 @@ public class Orientacao implements Serializable {
     @Column(name = "DESCRICAO_T250", length = 250, nullable = false)
     private String descricao;
 
-    @ManyToMany(fetch = FetchType.LAZY)
+    @ManyToMany(mappedBy = "orientacao",fetch = FetchType.LAZY)
     private List<Servico> servicos;
 }

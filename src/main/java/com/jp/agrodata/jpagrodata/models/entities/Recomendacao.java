@@ -24,6 +24,6 @@ public class Recomendacao implements Serializable {
     @Column(name = "DESCRICAO_T250", length = 250, nullable = false)
     private String descricao;
 
-    @ManyToMany(fetch = FetchType.LAZY)
+    @ManyToMany(mappedBy = "recomendacao",fetch = FetchType.LAZY)
     private List<Servico> servicos;
 }

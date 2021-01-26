@@ -16,8 +16,9 @@ import java.time.LocalDate;
 @Getter
 @Setter
 @Entity
-@PrimaryKeyJoinColumn(name="PK_PESSOA_FISICA", referencedColumnName="id")
-@Table(name = "TAB_CLIENTE_PF")
+//#@PrimaryKeyJoinColumn(name="PK_PESSOA_FISICA", referencedColumnName="id")
+//@Table(name = "TAB_CLIENTE_PF")
+@DiscriminatorValue("PESSOA_FISICA")
 public class ClientePF extends Pessoa {
 
     @Column(name="CPF", nullable=false, length=11)
@@ -44,4 +45,5 @@ public class ClientePF extends Pessoa {
     @Column(name="RACA_COR", nullable=true, columnDefinition = "varchar(30) default 'NAO_INFORMADO'")
     @Enumerated(EnumType.STRING)
     private EnumRaca raca;
+
 }

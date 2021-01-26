@@ -66,7 +66,4 @@ public class Empresa implements Serializable {
     @OneToMany(mappedBy = "empresaVinculada")
     private List<Departamento> departamentos;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "APP_ID")
-    private Root root;
 }

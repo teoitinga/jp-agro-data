@@ -22,5 +22,6 @@ public class ClienteDTO {
     private String email;
     private String endereco;
     private String whatsapp;
+    private String municipio;
     private String cpf;
 }

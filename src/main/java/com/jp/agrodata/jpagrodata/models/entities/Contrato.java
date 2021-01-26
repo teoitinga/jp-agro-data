@@ -47,8 +47,7 @@ public class Contrato implements Serializable {
     @Column(name = "FIM_VIGENCIA_CONTRATO_D")
     private LocalDateTime fimVigencia;
 
-    @OneToOne
-    @JoinColumn(name = "COD_CONTRATANTE")
+    @OneToOne(mappedBy = "contrato")
     private Empresa contratante;
 
     @Column(name = "VALOR_MENSAL", precision = 6, scale = 2)

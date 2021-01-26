@@ -12,8 +12,9 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@PrimaryKeyJoinColumn(name="id")
-@Table(name = "TAB_USUARIO")
+//@PrimaryKeyJoinColumn(name="id")
+//@Table(name = "TAB_USUARIO")
+@DiscriminatorValue("FUNCIONARIO")
 public class Usuario extends Pessoa {
 
     @Column(name="CPF", nullable=false, length=11)
