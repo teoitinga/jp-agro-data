@@ -22,26 +22,23 @@ public class Root implements Serializable {
     @Column(name="ID", nullable=false, unique = true)
     private Integer id;
 
-    @Column(name="APP_NAME_T15", length = 15, nullable=false, unique = false)
-    private String appName;
+    @Embedded
+    @AttributeOverrides({
+            @AttributeOverride( name = "appVersion", column = @Column(name = "APP_VERSION_T10")),
+            @AttributeOverride( name = "appName", column = @Column(name = "APP_NAME_T15")),
+            @AttributeOverride( name = "appKey", column = @Column(name = "APP_KEY_T15")),
+            @AttributeOverride( name = "appDescription", column = @Column(name = "APP_DESCRIPTION_T259"))
+    })
+    private AppInfo appinfo;
 
-    @Column(name="APP_KEY_T15", length = 15, nullable=false, unique = false)
-    private String appKey;
-
-    @Column(name="APP_DESCRIPTION_T259", length = 250, nullable=false, unique = false)
-    private String appDescription;
-
-    @Column(name="APP_VERSION_T10", length = 10, nullable=false, unique = false)
-    private String appVersion;
-
-    @Column(name="DEV_NAME_T250", length = 250, nullable=false, unique = false)
-    private String devName;
-
-    @Column(name="DEV_MAIL_T50", length = 50, nullable=false, unique = false)
-    private String devMail;
-
-    @Column(name="DEV_FONE_T50", length = 50, nullable=false, unique = false)
-    private String devFone;
+    @Embedded
+    @AttributeOverrides({
+            @AttributeOverride( name = "appVersion", column = @Column(name = "APP_VERSION_T10")),
+            @AttributeOverride( name = "devName", column = @Column(name = "DEV_NAME_T250")),
+            @AttributeOverride( name = "devMail", column = @Column(name = "DEV_MAIL_T50")),
+            @AttributeOverride( name = "devFone", column = @Column(name = "DEV_FONE_T50"))
+    })
+    private Developer desenvolvedor;
 
     @OneToMany(mappedBy = "empresa")
     private List<Message> messages;

@@ -33,18 +33,18 @@ public class Servico implements Serializable {
     @Column(name = "VALOR_ORCADO_ND", nullable = false)
     private BigDecimal valor;
 
-    @ManyToMany(fetch = FetchType.LAZY)
+    @ManyToMany(mappedBy = "servicos",fetch = FetchType.LAZY)
     private List<Meta> meta;
 
     @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "SERVICO_ID")
     private Collection<Situacao> situacao;
 
-    @ManyToMany(fetch = FetchType.LAZY)
+    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "SERVICO_ID")
     private List<Orientacao> orientacao;
 
-    @ManyToMany(fetch = FetchType.LAZY)
+    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "SERVICO_ID")
     private List<Recomendacao> recomendacao;
 }

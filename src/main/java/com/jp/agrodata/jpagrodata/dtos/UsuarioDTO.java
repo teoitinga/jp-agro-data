@@ -22,4 +22,6 @@ public class UsuarioDTO {
     private String endereco;
     private String foneContato;
     private String ativo;
+    private String whatsapp;
+    private String municipio;
 }

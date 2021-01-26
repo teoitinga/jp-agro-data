@@ -270,25 +270,33 @@ public class RootServiceImpl implements RootService {
 
     private AppDTO toAppDTO(Root dto) {
         return AppDTO.builder()
-                .appDescription(dto.getAppDescription())
-                .appKey(dto.getAppKey())
-                .appName(dto.getAppName())
-                .appVersion(dto.getAppVersion())
-                .devFone(dto.getDevFone())
-                .devMail(dto.getDevMail())
-                .devName(dto.getDevName())
+                .appDescription(dto.getAppinfo().getAppDescription())
+                .appKey(dto.getAppinfo().getAppKey())
+                .appName(dto.getAppinfo().getAppName())
+                .appVersion(dto.getAppinfo().getAppVersion())
+                .devFone(dto.getDesenvolvedor().getDevFone())
+                .devMail(dto.getDesenvolvedor().getDevMail())
+                .devName(dto.getDesenvolvedor().getDevName())
                 .build();
     }
 
     private Root toRoot(AppDTO dto) {
-        return Root.builder()
+        AppInfo appInfo = AppInfo.builder()
                 .appDescription(dto.getAppDescription())
                 .appKey(dto.getAppKey())
                 .appName(dto.getAppName())
                 .appVersion(dto.getAppVersion())
+                .build();
+
+        Developer desenvolvedor = Developer.builder()
+                .devName(dto.getDevName())
                 .devFone(dto.getDevFone())
                 .devMail(dto.getDevMail())
-                .devName(dto.getDevName())
+                .build();
+
+        return Root.builder()
+                .appinfo(appInfo)
+                .desenvolvedor(desenvolvedor)
                 .build();
     }
 
@@ -303,7 +311,7 @@ public class RootServiceImpl implements RootService {
                 .objeto(dto.getObjeto())
                 .servicos(dto.getServicos())
                 .remuneracao(dto.getRemuneracao())
-                .idApp(dto.getContratado().getAppKey())
+                .idApp(dto.getContratado().getAppinfo().getAppKey())
                 .dataContrato(dto.getDataContrato().format(config.formatterddMMyyyy()))
                 .build();
     }
@@ -432,23 +440,33 @@ public class RootServiceImpl implements RootService {
 
     private RootDTO toRootDto(Root root) {
         RootDTO response = new RootDTO();
-        response.setAppName(root.getAppName());
-        response.setAppDescription(root.getAppDescription());
-        response.setAppVersion(root.getAppVersion());
-        response.setDevFone(root.getDevFone());
-        response.setDevMail(root.getDevMail());
-        response.setDevName(root.getDevName());
+        response.setAppName(root.getAppinfo().getAppName());
+        response.setAppDescription(root.getAppinfo().getAppDescription());
+        response.setAppVersion(root.getAppinfo().getAppVersion());
+        response.setDevFone(root.getDesenvolvedor().getDevFone());
+        response.setDevMail(root.getDesenvolvedor().getDevMail());
+        response.setDevName(root.getDesenvolvedor().getDevName());
         return response;
     }
 
     private Root toRoot(RootDTO dto) {
         Root response = new Root();
-        response.setAppName(dto.getAppName());
-        response.setAppDescription(dto.getAppDescription());
-        response.setAppVersion(dto.getAppVersion());
-        response.setDevFone(dto.getDevFone());
-        response.setDevMail(dto.getDevMail());
-        response.setDevName(dto.getDevName());
+
+        AppInfo appInfo = AppInfo.builder()
+                .appDescription(dto.getAppDescription())
+                .appName(dto.getAppName())
+                .appVersion(dto.getAppVersion())
+                .build();
+
+        Developer desenvolvedor = Developer.builder()
+                .devName(dto.getDevName())
+                .devFone(dto.getDevFone())
+                .devMail(dto.getDevMail())
+                .build();
+
+        response.setAppinfo(appInfo);
+        response.setDesenvolvedor(desenvolvedor);
+
         return response;
     }
 }
