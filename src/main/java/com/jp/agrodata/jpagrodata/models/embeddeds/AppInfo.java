@@ -1,4 +1,4 @@
-package com.jp.agrodata.jpagrodata.models.entities;
+package com.jp.agrodata.jpagrodata.models.embeddeds;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

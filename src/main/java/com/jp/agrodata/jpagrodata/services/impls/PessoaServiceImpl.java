@@ -3,7 +3,7 @@ package com.jp.agrodata.jpagrodata.services.impls;
 import com.jp.agrodata.jpagrodata.configs.Configuration;
 import com.jp.agrodata.jpagrodata.dtos.ClienteDTO;
 import com.jp.agrodata.jpagrodata.dtos.UsuarioDTO;
-import com.jp.agrodata.jpagrodata.models.Contato;
+import com.jp.agrodata.jpagrodata.models.embeddeds.Contato;
 import com.jp.agrodata.jpagrodata.models.entities.ClientePF;
 import com.jp.agrodata.jpagrodata.models.entities.Usuario;
 import com.jp.agrodata.jpagrodata.models.enums.*;

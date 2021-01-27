@@ -1,5 +1,6 @@
-package com.jp.agrodata.jpagrodata.models;
+package com.jp.agrodata.jpagrodata.embeddeds;
 
+import com.jp.agrodata.jpagrodata.models.embeddeds.Contato;
 import com.jp.agrodata.jpagrodata.models.entities.Usuario;
 import lombok.Data;
 import lombok.Getter;
@@ -17,6 +18,7 @@ import java.time.LocalDateTime;
 @DiscriminatorColumn(name = "REGIME_JURIDICO")
 @Table(name = "TAB_PESSOAL")
 public abstract class Pessoa implements Serializable {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="ID", nullable=true, unique = true)
@@ -41,20 +43,15 @@ public abstract class Pessoa implements Serializable {
     @Column(name="LAST_UPDATE_USER")
     private Usuario lastUpdateUser;
 
+    @Column(name="INDICE_REG")
+    private Integer indexReg;
+
     @Column(name="CREATED")
     private LocalDateTime created;
 
     @ManyToOne
     @JoinColumn(name = "USUARIO_ID")
     private Usuario createUser;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public String getNome() {
         return nome;
@@ -76,11 +73,27 @@ public abstract class Pessoa implements Serializable {
     public void preUpdate(){
         this.lastUpdateUser = null;
         this.lastUpdated = LocalDateTime.now();
+        Integer idx = 0;
+        //testa campos null e incrementa contador;
+        if(this.nome ==null){
+            idx++;
+        }
+        if(this.contato ==null){
+            idx++;
+        }
     }
 
     @PrePersist
     public void prePersist(){
         this.createUser = null;
         this.created = LocalDateTime.now();
+        Integer idx = 0;
+        //testa campos null e incrementa contador;
+        if(this.nome ==null){
+            idx++;
+        }
+        if(this.contato ==null){
+            idx++;
+        }
     }
 }
