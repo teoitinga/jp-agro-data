@@ -78,4 +78,8 @@ public class Projeto implements Serializable {
 
     @OneToMany(mappedBy = "projeto")
     List<Meta> metas;
+
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST, orphanRemoval = true)
+    @JoinColumn(name = "ATENDIMENTO_ID")
+    List<Atendimento> atendimentos;
 }

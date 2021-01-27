@@ -4,6 +4,8 @@ import com.jp.agrodata.jpagrodata.configs.Configuration;
 import com.jp.agrodata.jpagrodata.dtos.*;
 import com.jp.agrodata.jpagrodata.exceptions.AppNotFoundException;
 import com.jp.agrodata.jpagrodata.exceptions.BancoNotFoundException;
+import com.jp.agrodata.jpagrodata.models.embeddeds.AppInfo;
+import com.jp.agrodata.jpagrodata.models.embeddeds.Developer;
 import com.jp.agrodata.jpagrodata.models.entities.*;
 import com.jp.agrodata.jpagrodata.models.repositories.*;
 import com.jp.agrodata.jpagrodata.services.EmpresaService;

@@ -1,5 +1,7 @@
 package com.jp.agrodata.jpagrodata.models.entities;
 
+import com.jp.agrodata.jpagrodata.models.embeddeds.AppInfo;
+import com.jp.agrodata.jpagrodata.models.embeddeds.Developer;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
