@@ -63,8 +63,9 @@ public class Projeto implements Serializable {
     @Column(name = "PUB_ALVO_T250", length = 250)
     private String publicoAlvo;
 
-    @Column(name = "CPF_RESP_T15", length = 15)
-    private String cpfResponsavel;
+    @ManyToOne
+    @JoinColumn(name = "REPRESENTANTE_ID")
+    private Usuario representante;
 
     @Column(name = "COD_IBGE_MUNIC_T15", length = 10)
     private String codIBGEMunicipio;

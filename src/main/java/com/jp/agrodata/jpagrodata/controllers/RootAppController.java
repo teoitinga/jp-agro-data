@@ -1,104 +1,70 @@
 package com.jp.agrodata.jpagrodata.controllers;
 
 import com.jp.agrodata.jpagrodata.dtos.*;
-import com.jp.agrodata.jpagrodata.services.RelatorioService;
-import com.jp.agrodata.jpagrodata.services.RootService;
-import com.jp.agrodata.jpagrodata.services.impls.RelatorioServiceImpl;
+import com.jp.agrodata.jpagrodata.services.ContratoService;
+import com.jp.agrodata.jpagrodata.services.EmpresaService;
+import com.jp.agrodata.jpagrodata.services.MunicipioService;
+import com.jp.agrodata.jpagrodata.services.impls.ContratoServiceImpl;
+import com.jp.agrodata.jpagrodata.services.impls.EmpresaServiceImpl;
+import com.jp.agrodata.jpagrodata.services.impls.MunicipioServiceImpl;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
 
 @RestController
 @RequestMapping("/api/v1/root")
 @Slf4j
 public class RootAppController {
 
-    private RootService rootService;
-    private RelatorioService relatorioService;
+    private EmpresaService empresaService;
+    private ContratoService contratoService;
+    private MunicipioService municipioService;
 
     public RootAppController(
-            RootService rootService,
-                             RelatorioService relatorioService
+            EmpresaService empresaService,
+            ContratoService contratoService,
+            MunicipioService municipioService
     ) {
-        this.relatorioService = relatorioService;
-        this.rootService = rootService;
+        this.empresaService = empresaService;
+        this.contratoService = contratoService;
+        this.municipioService = municipioService;
     }
 
-    @PostMapping("gerenciar-empresa")
+    @PostMapping("/empresa")
     @ResponseStatus(HttpStatus.CREATED)
-    public EmpresaDTO criaEmpresa(@RequestBody EmpresaDTO dto){
-       return this.rootService.saveEmpresa(dto);
-
-    }
-    @PostMapping("root")
-    @ResponseStatus(HttpStatus.CREATED)
-    public RootDTO criaRoot(@RequestBody RootDTO dto){
-       return this.rootService.save(dto);
-
-    }
-    @PostMapping("conta-bancaria")
-    @ResponseStatus(HttpStatus.CREATED)
-    public ContaBancariaDTO criaRoot(@RequestBody ContaBancariaDTO dto){
-       return this.rootService.saveContaBancaria(dto);
-
-    }
-    @PostMapping("banco")
-    @ResponseStatus(HttpStatus.CREATED)
-    public BancoDTO criaRoot(@RequestBody BancoDTO dto){
-       return this.rootService.saveBanco(dto);
-
-    }
-    @PostMapping("agencia-bancaria")
-    @ResponseStatus(HttpStatus.CREATED)
-    public AgenciaBancariaDTO criaRoot(@RequestBody AgenciaBancariaDTO dto){
-       return this.rootService.saveAgenciaBancaria(dto);
-
-    }
-    @PostMapping("messages")
-    @ResponseStatus(HttpStatus.CREATED)
-    public MessageDTO criaMensagem(@RequestBody MessageDTO dto){
-       return this.rootService.saveMessage(dto);
-
-    }
-    @PostMapping("unidades")
-    @ResponseStatus(HttpStatus.CREATED)
-    public UnidadeDTO registraUnidadeDeMedida(@RequestBody UnidadeDTO dto){
-        return this.rootService.saveUnidadeDeMedida(dto);
-    }
-    @PostMapping("contrato")
-    @ResponseStatus(HttpStatus.CREATED)
-    public ContratoDTO criaContrato(@RequestBody ContratoDTO dto){
-        return this.rootService.criaContrato(dto);
+    public EmpresaDTO registraEmpresa(@RequestBody @Valid EmpresaDTO dto){
+        return this.empresaService.save(dto);
     }
 
-    @PostMapping("system")
-    @ResponseStatus(HttpStatus.CREATED)
-    public AppDTO criaLicenca(@RequestBody AppDTO dto){
-        return this.rootService.criaApp(dto);
-    }
-
-    @PostMapping("situacao")
-    @ResponseStatus(HttpStatus.CREATED)
-    public SituacaoDTO criaSituacao(@RequestBody SituacaoDTO dto){
-        return this.rootService.criaSituacao(dto);
-
-    }
-    @PostMapping("orientacao")
-    @ResponseStatus(HttpStatus.CREATED)
-    public OrientacaoDTO criaOrientacao(@RequestBody OrientacaoDTO dto){
-
-        return this.rootService.criaOrientacao(dto);
-    }
-    @PostMapping("recomendacao")
-    @ResponseStatus(HttpStatus.CREATED)
-    public RecomendacaoDTO criaRecomendacao(@RequestBody RecomendacaoDTO dto){
-        return this.rootService.criaRecomendacao(dto);
-    }
-    @GetMapping("situacao/{servico}")
+    @GetMapping("/empresa")
     @ResponseStatus(HttpStatus.OK)
-    public Page<SituacaoDTO> obterSituacaoPorServico(@PathVariable String servico, Pageable pageRequest){
-        return this.relatorioService.obterSituacaoPorServico(servico, pageRequest);
+    public EmpresaDTO getEmpresa(@RequestParam Integer id){
+        return this.empresaService.obterEmpresa(id);
+    }
+
+    @PostMapping("/contrato")
+    @ResponseStatus(HttpStatus.CREATED)
+    public ContratoDto criaContrato(@RequestBody @Valid ContratoDto dto){
+        return this.contratoService.save(dto);
+    }
+
+    @PostMapping("/municipio")
+    @ResponseStatus(HttpStatus.CREATED)
+    public MunicipioDto criaMunicipio(@RequestBody @Valid MunicipioDto dto){
+        return this.municipioService.save(dto);
+    }
+
+    @PostMapping("/contrato/plano")
+    @ResponseStatus(HttpStatus.CREATED)
+    public PlanoDto criaPlano(@RequestBody @Valid PlanoDto dto){
+        return this.contratoService.savePlano(dto);
+    }
+
+    @PostMapping("/contrato/clausula")
+    @ResponseStatus(HttpStatus.CREATED)
+    public ClausulaDto criaPlano(@RequestBody @Valid ClausulaDto dto){
+        return this.contratoService.saveClausula(dto);
     }
 }

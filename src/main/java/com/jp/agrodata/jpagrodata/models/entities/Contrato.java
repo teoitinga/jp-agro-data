@@ -9,6 +9,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @AllArgsConstructor
@@ -22,10 +23,6 @@ public class Contrato implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name = "CLAUSULAS_TL", nullable = false)
-    @Lob
-    private String clausulas;
-
     @Column(name = "OBJETO_TL", nullable = false)
     @Lob
     private String objeto;
@@ -34,28 +31,29 @@ public class Contrato implements Serializable {
     @Lob
     private String servicos;
 
-    @Column(name = "REMUNERACAO_TL", nullable = false)
-    @Lob
-    private String remuneracao;
-
     @Column(name = "DATA_CONTRATO_D")
     private LocalDateTime dataContrato;
 
-    @Column(name = "CREATED_DATA_D")
+    @Column(name = "CREATED_DATA")
     private LocalDateTime created;
-
-    @Column(name = "FIM_VIGENCIA_CONTRATO_D")
-    private LocalDateTime fimVigencia;
 
     @OneToOne(mappedBy = "contrato")
     private Empresa contratante;
 
-    @Column(name = "VALOR_MENSAL", precision = 6, scale = 2)
-    private BigDecimal valor;
-
     @ManyToOne
     @JoinColumn(name = "COD_ROOT")
     private Root contratado;
+
+    @OneToMany(mappedBy = "contrato")
+    private List<Clausula> clausulas;
+
+    @ManyToOne
+    @JoinColumn(name = "COD_PLANO")
+    private Plano plano;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "municipio_cod")
+    private Municipio local;
 
     @PrePersist
     public void fechaContrato(){

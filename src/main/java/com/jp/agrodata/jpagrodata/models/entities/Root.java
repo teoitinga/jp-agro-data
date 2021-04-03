@@ -42,10 +42,4 @@ public class Root implements Serializable {
     })
     private Developer desenvolvedor;
 
-    @OneToMany(mappedBy = "empresa")
-    private List<Message> messages;
-
-    @OneToMany(mappedBy = "empresa")
-    private List<ContaBancaria> devConta;
-
 }
