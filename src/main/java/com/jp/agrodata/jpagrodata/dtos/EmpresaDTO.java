@@ -31,7 +31,9 @@ public class EmpresaDTO implements Serializable {
 
     private String emailEmpresa;
 
-    private UsuarioDto representante;
+    private String cpfRepresentante;
+
+    private String cpfVendedor;
 
     private String codContrato;
 }

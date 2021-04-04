@@ -22,4 +22,19 @@ public class ContratoServiceImpl implements ContratoService {
     public ClausulaDto saveClausula(ClausulaDto dto) {
         return null;
     }
+
+    @Override
+    public ContratoDto getContrato(Integer id) {
+        return null;
+    }
+
+    @Override
+    public PlanoDto getPlano(Integer id) {
+        return null;
+    }
+
+    @Override
+    public ClausulaDto getClausula(Integer any) {
+        return null;
+    }
 }

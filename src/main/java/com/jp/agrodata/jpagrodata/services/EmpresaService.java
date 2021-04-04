@@ -6,4 +6,6 @@ public interface EmpresaService {
     EmpresaDTO save(EmpresaDTO any);
 
     EmpresaDTO obterEmpresa(Integer id);
+
+    EmpresaDTO update(EmpresaDTO dto, String id);
 }

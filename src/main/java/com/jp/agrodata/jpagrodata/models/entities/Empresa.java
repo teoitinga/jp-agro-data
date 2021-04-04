@@ -41,6 +41,10 @@ public class Empresa implements Serializable {
     @JoinColumn(name = "REPRESENTANTE_ID")
     private Usuario representante;
 
+    @ManyToOne
+    @JoinColumn(name = "VENDEDOR_ID")
+    private Usuario vendedor;
+
     @OneToMany(mappedBy = "empresaVinculada")
     private List<Cargo> cargos;
 

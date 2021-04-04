@@ -10,4 +10,10 @@ public interface ContratoService {
     PlanoDto savePlano(PlanoDto dto);
 
     ClausulaDto saveClausula(ClausulaDto dto);
+
+    ContratoDto getContrato(Integer id);
+
+    PlanoDto getPlano(Integer id);
+
+    ClausulaDto getClausula(Integer any);
 }

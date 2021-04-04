@@ -18,8 +18,9 @@ public class ClausulaFactory {
     }
 
     private static ClausulaDto clausula01() {
-        String cls = " O presente contrato tem por objetivo o desenvolvimento de site, software e aplicativo Hibrido. ";
+        String cls = "O presente contrato tem por objetivo o desenvolvimento de site, software e aplicativo Hibrido.";
         return ClausulaDto.builder()
+                .numero(1)
                 .description(cls)
                 .build();
     }
@@ -30,5 +31,11 @@ public class ClausulaFactory {
         return ClausulaDto.builder()
                 .description(cls)
                 .build();
+    }
+
+    public static ClausulaDto clausula01SavedDto() {
+        ClausulaDto dto = clausula01();
+        dto.setId(1);
+        return dto;
     }
 }

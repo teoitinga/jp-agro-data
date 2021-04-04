@@ -10,4 +10,9 @@ public class MunicipioServiceImpl implements MunicipioService {
     public MunicipioDto save(MunicipioDto dto) {
         return null;
     }
+
+    @Override
+    public MunicipioDto getMunicipio(String codigo) {
+        return null;
+    }
 }

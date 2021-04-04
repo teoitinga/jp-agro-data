@@ -16,4 +16,9 @@ public class EmpresaServiceImpl implements EmpresaService {
     public EmpresaDTO obterEmpresa(Integer id) {
         return null;
     }
+
+    @Override
+    public EmpresaDTO update(EmpresaDTO dto, String id) {
+        return null;
+    }
 }

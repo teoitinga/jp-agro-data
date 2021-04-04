@@ -9,6 +9,13 @@ public class MunicipioFactory {
                 .uf("MG")
                 .build();
     }
+    public static MunicipioDto TarumirimSavedDto() {
+        return MunicipioDto.builder()
+                .id("H0684")
+                .municipio("Tarumirim")
+                .uf("MG")
+                .build();
+    }
 
     public static MunicipioDto ItingaDto() {
         return MunicipioDto.builder()
